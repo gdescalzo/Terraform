@@ -78,9 +78,7 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
             gcloud projects add-iam-policy-binding poc-centerhorses \
             --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
             --role="roles/iam.serviceAccountAdmin"
-
 <strong>Aclaracion</strong>: 
-
 * <strong>add-iam-policy-binding</strong>: es el "flag" que asigna el "role" a la cuenta de servicio.
 * <strong>PROJECT_IS</strong>: en este caso el project_id es "<strong>poc-centerhorses</strong>" (puede obtenerse con el comnado: <strong>gcloud projects list</strong>)
 * <strong>--member=...</strong>: esta es la cuenta de servicio (puede obtenerse con el comando: <strong>gcloud iam service-accounts list</strong>)
