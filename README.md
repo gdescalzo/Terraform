@@ -42,9 +42,9 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
             Enabling service [cloudapis.googleapis.com] on project [poc-centerhorses]...
             Operation "operations/acf.p2-853615149116-aee4e35c-2de2-4b29-8ee1-e2e6c4eeb42f" finished successfully.
             [root@gsv-gastion terraform-gcp]# 
-        <strong>Aclaracion</strong>:</br>
-        - --name poc-CenterHorses <-- es el nombre del proyecto
-        - pocceterhorses <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
+    <strong>Aclaracion</strong>:</br>
+    - --name poc-CenterHorses <-- es el nombre del proyecto
+    - pocceterhorses <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
 
 3.  Seleccionamos el proyecto:</br>
     Utilizando el siguiente comando: <strong>gcloud config set project</strong>
