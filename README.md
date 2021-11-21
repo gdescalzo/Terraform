@@ -35,8 +35,8 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
     Utilizando el siguiente comando: <strong>gcloud projects create --name poc-CenterHorses poc-centerhorses</strong></br>
 
     <strong>Aclaracion</strong>:</br>
-    - <strong>--name poc-CenterHorses</strong> <-- es el nombre del proyecto
-    - <strong>pocceterhorses</strong> <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
+    * <strong>--name poc-CenterHorses</strong> <-- es el nombre del proyecto
+    * <strong>pocceterhorses</strong> <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
 
             [root@gsv-gastion terraform-gcp]# gcloud projects create --name poc-CenterHorses poc-centerhorses
             
