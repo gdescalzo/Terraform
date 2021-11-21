@@ -19,7 +19,7 @@ Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el sigui
 - <strong>IAM</strong>: pocClienteServiceAccount@google...
     - <strong>Role</strong>: cloud.admin 
 
-### 1. Creacion de Proyecto
+### Creacion de Proyecto
 
 1.  Loguearse como <strong>Tenant Admin</strong>:</br>
     Utilizando el siguiente comando: <strong>gcloud auth login</strong>:
@@ -60,7 +60,7 @@ Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el sigui
             Updated property [core/project].
             [root@gsv-gastion terraform-gcp]# 
 
-### 2. Creacion Cuenta de Servicio
+### Creacion Cuenta de Servicio
 
 gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
 
