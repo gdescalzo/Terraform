@@ -10,8 +10,8 @@ Es recomendable crear un proyecto y dentro de ese proyecto sus credenciales de a
 
 Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
 
- .Project:    POC-Cliente 
- .IAM:        pocClienteServiceAccount@google...
+- Project:    POC-Cliente 
+- IAM:        pocClienteServiceAccount@google...
 
 ### Creacion de projecto para POC.
 
