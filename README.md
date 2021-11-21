@@ -15,8 +15,9 @@ Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, la
 
 Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
 
-- <strong>Project</strong>: POC-Cliente
-- <strong>IAM</strong>:      pocClienteServiceAccount@google...
+- <strong>Project</strong>:     POC-Cliente
+- <strong>IAM</strong>:         pocClienteServiceAccount@google...
+    - <strong>role</strong>:    cloud.admin 
 
 ### 1. Creacion de Proyecto
 
