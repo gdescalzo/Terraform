@@ -6,7 +6,8 @@ Repositorio de Terraform , para despliegues en GCP.
 Para utilizar el siguiente codigo debemos, cumplir con ciertos requisitos a fin de garantizar conectividad segura entre GCP y nuestro "Terraform Server".
 ## Algunas consideraciones.
 
-Es recomendable crear un proyecto y dentro de ese proyecto sus credenciales de acceso. Nmralmente todos los sistemas de cloud publica utilizan cuentas de servicio, las cuales son accesibles via API y a  su vez administradas a travez de IAM (Infraestructure Access Managment) que poseen todas las nubes.
+Para toda POC o Proyecto definitivo es recomendable crear un proyecto y dentro de ese proyecto sus credenciales de acceso. 
+Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, las cuales son accesibles via API y a  su vez administradas a travez de IAM (Infraestructure Access Managment) que poseen todas las nubes.
 
 Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
 
@@ -30,4 +31,18 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
             $ gcloud config set project PROJECT_ID
             [root@gsv-gastion terraform-gcp]# 
 
+2.  Creamos el proyecto:
+    Utilizando el siguiente comando: <strong>gcloud projects create --name poc-CenterHorses poc-centerhorses</strong></br>
+
+            [root@gsv-gastion terraform-gcp]# gcloud projects create --name poc-CenterHorses poc-centerhorses
+            Create in progress for [https://cloudresourcemanager.googleapis.com/v1/projects/poc-centerhorses].
+            Waiting for [operations/cp.5938497902378632191] to finish...done.                                                                                                                                                  
+            Enabling service [cloudapis.googleapis.com] on project [poc-centerhorses]...
+            Operation "operations/acf.p2-853615149116-aee4e35c-2de2-4b29-8ee1-e2e6c4eeb42f" finished successfully.
+            [root@gsv-gastion terraform-gcp]# 
+
+    <strong>Aclaracion</strong>:</br>
+    - --name poc-CenterHorses <-- es el nombre del proyecto
+    - pocceterhorses <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
+    
 ### 2. Creacion Cuenta de Servicio
