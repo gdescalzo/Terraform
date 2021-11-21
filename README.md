@@ -44,7 +44,7 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
 
     <strong>Aclaracion</strong>:</br>
     * <strong>--name poc-CenterHorses</strong> <-- es el nombre del proyecto
-    * <strong>pocceterhorses</strong> <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
+    * <strong>pocceterhorses</strong> -- es el ID del proyecto (el cual siempre debe ir en minuscula).
 
             [root@gsv-gastion terraform-gcp]# gcloud projects create --name poc-CenterHorses poc-centerhorses
             
@@ -73,12 +73,14 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
             [root@gsv-gastion terraform-gcp]# 
 
 2.  Asignamos un "<strong>role</strong>" de operacion para la Cuenta de Servicio Creada</br>
-    Utilizaremos el siguiente comando: "<strong>gcloud projects add-iam-policy-binding poc-centerhorses \</br>
-    --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \</br>
-    --role="roles/iam.serviceAccountAdmin"</strong>"
+    Utilizaremos el siguiente comando: 
+    
+    "<strong>gcloud projects add-iam-policy-binding poc-centerhorses </br>
+            --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" </br>
+            --role="roles/iam.serviceAccountAdmin"</strong>"
 
             [root@gsv-gastion terraform-gcp]# gcloud projects add-iam-policy-binding poc-centerhorses \
-            > --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
+             --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
             > --role="roles/iam.serviceAccountAdmin"
             Updated IAM policy for project [poc-centerhorses].
             bindings:
