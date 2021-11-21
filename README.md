@@ -121,3 +121,12 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
             version: 1
             [root@gsv-gastion terraform-gcp]# 
 
+## Descargar Service Account Key
+
+Para que Terrafom pueda interactuar con GCP, como ya sabemos necesita una cuenta de servicio.
+Asi mismo cada cuenta de servicio puede tener una KEY. Digo puede, ya que hay que generarla y descargarla para que Terraform pueda hacer el "<strong>HandShake</strong>" con GCP. 
+
+Podemos generar la KEY y descargarla con el siguiente comando: 
+            gcloud iam service-accounts keys create ./poc-terraform.json \
+            --iam-account poc-terraform@poc-centerhorses.iam.gserviceaccount.com
+
