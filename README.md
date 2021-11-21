@@ -44,5 +44,10 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
     <strong>Aclaracion</strong>:</br>
     - --name poc-CenterHorses <-- es el nombre del proyecto
     - pocceterhorses <-- es el ID del proyecto (el cual siempre debe ir en minuscula).
-    
+
+3.  Seleccionamos el proyecto:
+    Utilizando el siguiente comando: <strong>gcloud config set project</strong>
+
 ### 2. Creacion Cuenta de Servicio
+
+gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
