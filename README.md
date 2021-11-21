@@ -6,8 +6,12 @@ Repositorio de Terraform , para despliegues en GCP.
 Para utilizar el siguiente codigo debemos, cumplir con ciertos requisitos a fin de garantizar conectividad segura entre GCP y nuestro "Terraform Server".
 ## Algunas consideraciones.
 
-Para toda POC o Proyecto definitivo es recomendable crear un proyecto y dentro de ese proyecto sus credenciales de acceso. 
-Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, las cuales son accesibles via API y a  su vez administradas a travez de IAM (Infraestructure Access Managment) que poseen todas las nubes.
+Para toda POC o Proyecto definitivo es recomendable crear: 
+
+1. Su propio <strong>Teannt</strong> , el cual GCP lo llama "<strong>Project</strong>" o "<strong>Proyecto</strong>".
+2. Dentro del mismo, sus credenciales de acceso. 
+
+Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, las cuales son accesibles via API. A su vez son administradas a travez de IAM (Infraestructure Access Managment) que poseen todas las nubes.
 
 Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
 
