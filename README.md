@@ -9,11 +9,11 @@ Para utilizar el siguiente codigo debemos, cumplir con ciertos requisitos a fin 
 Para toda POC o Proyecto definitivo es recomendable crear: 
 
 1. Su propio <strong>Teannt</strong> , el cual GCP lo llama "<strong>Project</strong>" o "<strong>Proyecto</strong>".
-2. Dentro del mismo, sus credenciales de acceso. 
+2. Dentro del mismo, sus credenciales de acceso mediante la asignacion de un "<strong>Service Account</strong>" o "<strong>Cuenta de Servicio</strong>".
 
-Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, las cuales son accesibles via API. A su vez son administradas a travez de IAM (Infraestructure Access Managment) que poseen todas las nubes.
+Noralmente todos los sistemas de cloud publica, utilizan cuentas de servicio, las cuales son accesibles via API. A su vez son administradas a travez de <strong>IAM</strong> (Infraestructure Access Managment) que poseen todas las nubes.
 
-Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
+Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el siguiente esquema:
 
 - <strong>Project</strong>: POC-Cliente
 - <strong>IAM</strong>:      pocClienteServiceAccount@google...
