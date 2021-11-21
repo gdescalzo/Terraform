@@ -35,8 +35,10 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
     Utilizando el siguiente comando: <strong>gcloud projects create --name poc-CenterHorses poc-centerhorses</strong></br>
 
             [root@gsv-gastion terraform-gcp]# gcloud projects create --name poc-CenterHorses poc-centerhorses
+            
             Create in progress for [https://cloudresourcemanager.googleapis.com/v1/projects/poc-centerhorses].
-            Waiting for [operations/cp.5938497902378632191] to finish...done.                                                                                                                                                  
+            Waiting for [operations/cp.5938497902378632191] to finish...done.
+                                                                                                                                                             
             Enabling service [cloudapis.googleapis.com] on project [poc-centerhorses]...
             Operation "operations/acf.p2-853615149116-aee4e35c-2de2-4b29-8ee1-e2e6c4eeb42f" finished successfully.
             [root@gsv-gastion terraform-gcp]# 
@@ -51,3 +53,5 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
 ### 2. Creacion Cuenta de Servicio
 
 gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
+
+
