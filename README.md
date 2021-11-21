@@ -15,7 +15,7 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
 
 ### 1. Creacion de Proyecto
 
-1.  Loguearse como <strong>Tenant Admin</strong>:
+1.  Loguearse como <strong>Tenant Admin</strong>:</br>
     Utilizando el siguiente comando: <strong>gcloud auth login</strong>:
 
             [root@gsv-gastion terraform-gcp]# gcloud auth login
