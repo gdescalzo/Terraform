@@ -75,9 +75,16 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
 2.  Asignamos un "<strong>role</strong>" de operacion para la Cuenta de Servicio Creada</br>
     Utilizaremos el siguiente comando: 
     
-    "<strong>gcloud projects add-iam-policy-binding poc-centerhorses </br>
-            --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" </br>
-            --role="roles/iam.serviceAccountAdmin"</strong>"
+            gcloud projects add-iam-policy-binding poc-centerhorses \
+            --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
+            --role="roles/iam.serviceAccountAdmin"
+
+<strong>Aclaracion</strong>: 
+
+* <strong>add-iam-policy-binding</strong>: es el "flag" que asigna el "role" a la cuenta de servicio.
+* <strong>PROJECT_IS</strong>: en este caso el project_id es "<strong>poc-centerhorses</strong>" (puede obtenerse con el comnado: <strong>gcloud projects list</strong>)
+* <strong>--member=...</strong>: esta es la cuenta de servicio (puede obtenerse con el comando: <strong>gcloud iam service-accounts list</strong>)
+* <strong>--role=...</strong>: este es el role (permisos que se le asignaran a la cuenta de servicio creada.)
 
             [root@gsv-gastion terraform-gcp]# gcloud projects add-iam-policy-binding poc-centerhorses \
              --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
@@ -93,7 +100,4 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
             etag: BwXRUhXRFr0=
             version: 1
             [root@gsv-gastion terraform-gcp]# 
-
-
-
 
