@@ -19,7 +19,10 @@ Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el sigui
 - <strong>IAM</strong>: pocClienteServiceAccount@google...
     - <strong>Role</strong>: cloud.admin 
 
-### Creacion de Proyecto
+### Proyecto
+
+A continuacion se explicaran los pasos para crear un projecto en GCP:
+
 
 1.  Loguearse como <strong>Tenant Admin</strong>:</br>
     Utilizando el siguiente comando: <strong>gcloud auth login</strong>:
@@ -60,8 +63,35 @@ Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el sigui
             Updated property [core/project].
             [root@gsv-gastion terraform-gcp]# 
 
-### Creacion Cuenta de Servicio
+### Cuenta de Servicio
 
-gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
+1.  Creamos la Cuenta de Servicio</br>
+    Utilizaremos el siguiente comando: "<strong>gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"</strong>"
+
+            [root@gsv-gastion terraform-gcp]# gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
+            Created service account [poc-terraform].
+            [root@gsv-gastion terraform-gcp]# 
+
+2.  Asignamos un "<strong>role</strong>" de operacion para la Cuenta de Servicio Creada</br>
+    Utilizaremos el siguiente comando: "<strong>gcloud projects add-iam-policy-binding poc-centerhorses \</br>
+    --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \</br>
+    --role="roles/iam.serviceAccountAdmin"</strong>"
+
+            [root@gsv-gastion terraform-gcp]# gcloud projects add-iam-policy-binding poc-centerhorses \
+            > --member="serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com" \
+            > --role="roles/iam.serviceAccountAdmin"
+            Updated IAM policy for project [poc-centerhorses].
+            bindings:
+            - members:
+            - serviceAccount:poc-terraform@poc-centerhorses.iam.gserviceaccount.com
+            role: roles/iam.serviceAccountAdmin
+            - members:
+            - user:gdescalzo11@gmail.com
+            role: roles/owner
+            etag: BwXRUhXRFr0=
+            version: 1
+            [root@gsv-gastion terraform-gcp]# 
+
+
 
 
