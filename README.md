@@ -51,6 +51,10 @@ Por tanto al trabajar con un "Cliente" en particular se sugiere seguir el siguie
 3.  Seleccionamos el proyecto:</br>
     Utilizando el siguiente comando: <strong>gcloud config set project</strong>
 
+            [root@gsv-gastion terraform-gcp]# gcloud config set project poc-centerhorses
+            Updated property [core/project].
+            [root@gsv-gastion terraform-gcp]# 
+
 ### 2. Creacion Cuenta de Servicio
 
 gcloud iam service-accounts create poc-terraform --display-name="poc-terraform"
