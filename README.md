@@ -56,13 +56,34 @@ A continuacion se explicaran los pasos para crear un projecto en GCP:
             [root@gsv-gastion terraform-gcp]#
 
 
-3.  Seleccionamos el proyecto:</br>
+3.  Seleccionamos el Proyecto:</br>
     Utilizando el siguiente comando: <strong>gcloud config set project poc-centerhorses</strong>
 
             [root@gsv-gastion terraform-gcp]# gcloud config set project poc-centerhorses
             Updated property [core/project].
             [root@gsv-gastion terraform-gcp]# 
 
+4.  Seteamos el la Zona de Computo:</br>
+    Utilizando el siguiente comando: <strong>gcloud config set compute/zone southamerica-west1-a</strong>
+
+            [root@gsv-gastion terraform-gcp]# gcloud config set compute/zone southamerica-west1-a
+            Updated property [compute/zone].
+            API [compute.googleapis.com] not enabled on project [853615149116]. Would you like to enable and retry (this will take a few minutes)? (y/N)?  y
+
+            Enabling service [compute.googleapis.com] on project [853615149116]...
+            WARNING: Property validation for compute/zone was skipped.
+            [root@gsv-gastion terraform-gcp]# 
+
+5.  Configuramos la Region de Computo:</br>
+    Utilizando el siguiente comando: <strong>gcloud config set compute/region southamerica-west1</strong>
+
+            [root@gsv-gastion terraform-gcp]# gcloud config set compute/region southamerica-west1
+            Updated property [compute/region].
+            API [compute.googleapis.com] not enabled on project [853615149116]. Would you like to enable and retry (this will take a few minutes)? (y/N)?  y
+
+            Enabling service [compute.googleapis.com] on project [853615149116]...
+            WARNING: Property validation for compute/region was skipped.
+            [root@gsv-gastion terraform-gcp]# 
 ### Cuenta de Servicio
 
 1.  Creamos la Cuenta de Servicio</br>
