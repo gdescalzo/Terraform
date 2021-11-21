@@ -18,6 +18,7 @@ Por tanto, al trabajar con un "Cliente" en particular se sugiere seguir el sigui
 - <strong>Project</strong>: POC-Cliente
 - <strong>IAM</strong>: pocClienteServiceAccount@google...
     - <strong>Role</strong>: cloud.admin 
+        - <strong>Service Account Key</strong>: poc-cliente.key
 
 ### Proyecto
 
