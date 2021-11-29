@@ -9,10 +9,12 @@ provider "google" {
   project = "poc-centerhorses"
   region  = "southamerica-west1"
   zone    = "southamerica-west1-a"
-  
 }
 
-# VPC Red1
+######################################################################################################
+######################################################################################################
+
+## VPC Red1
 # https://www.terraform.io/docs/providers/google/r/compute_network.html#example-usage-network-basic
 
 resource "google_compute_network" "red1" {
@@ -30,27 +32,10 @@ resource "google_compute_subnetwork" "mgmt" {
   network       = google_compute_network.red1.id
 }
 
-resource "google_compute_firewall" "red1" {
-  name    = "red1"
-  project = "poc-centerhorses"
-  network = google_compute_network.red1.id
-
-  allow {
-    protocol = "icmp"
-  }
-
-  allow {
-    protocol = "tcp"
-    ports    = ["22"]
-  }
-  source_ranges = ["0.0.0.0/0"]
-  #destination_ranges = ["0.0.0.0/0"]
-}
-
 ######################################################################################################
 ######################################################################################################
 
-# VPC Red2
+## VPC Red2
 # https://www.terraform.io/docs/providers/google/r/compute_network.html#example-usage-network-basic
 
 resource "google_compute_network" "red2" {
@@ -68,19 +53,40 @@ resource "google_compute_subnetwork" "service" {
   network       = google_compute_network.red2.id
 }
 
-resource "google_compute_firewall" "red2" {
-  name    = "red2"
-  project = "poc-centerhorses"
-  network = google_compute_network.red2.id
+######################################################################################################
+#####################################################################################################
 
-  allow {
-    protocol = "icmp"
-  }
+## Regalas de Firewall
 
-  allow {
-    protocol = "tcp"
-    ports    = ["22"]
-  }
-  source_ranges = ["0.0.0.0/0"]
+#resource "google_compute_firewall" "red1" {
+#  name    = "red1"
+#  project = "poc-centerhorses"
+#  network = google_compute_network.red1.id
 
-}
+#  allow {
+#    protocol = "icmp"
+#  }
+
+#  allow {
+#    protocol = "tcp"
+#    ports    = ["22"]
+#  }
+#  source_ranges = ["0.0.0.0/0"]
+#  #destination_ranges = ["0.0.0.0/0"]
+#}
+
+#resource "google_compute_firewall" "red2" {
+#  name    = "red2"
+#  project = "poc-centerhorses"
+#  network = google_compute_network.red2.id
+
+#  allow {
+#    protocol = "icmp"
+#  }
+
+#  allow {
+#    protocol = "tcp"
+#    ports    = ["22"]
+#  }
+#  source_ranges = ["0.0.0.0/0"]
+#}
