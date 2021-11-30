@@ -6,7 +6,7 @@ ACCOUNT_ID=$(gcloud alpha billing accounts list |awk '{print $1}'|grep -v 'ACCOU
 SERVICE_ACCOUNT_ID=$PROJECT_ID
 DESCRIPTION="Cuenta de servicio para $PROJECT_ID"
 DISPLAY_NAME="$PROJECT_ID"
-KEY_FILE="$PROJECT_ID"
+KEY_FILE="credentials"
 
 ## Creamos el proyecto
 gcloud alpha projects create $PROJECT_ID # [--organization $ORGANIZATION_ID]
