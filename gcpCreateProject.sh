@@ -18,7 +18,7 @@ gcloud alpha billing accounts projects link $PROJECT_ID --billing-account=$ACCOU
 gcloud iam service-accounts create $SERVICE_ACCOUNT_ID --display-name=$DISPLAY_NAME --project=$PROJECT_ID
 
 ## Asignamos un role al service account (admin)
-gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/iam.serviceAccountUser"
+gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/owner"
 
 ## Creamo la key de la service account
 gcloud iam service-accounts keys create ./vars/$KEY_FILE.json --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com

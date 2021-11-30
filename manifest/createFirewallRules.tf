@@ -1,7 +1,7 @@
 ## PRD Firewall Rules
-resource "google_compute_firewall "PRD" {
-  name    = "dev-firewall"
-  network = google_compute_network.prd.id
+resource "google_compute_firewall "prd" {
+  name    = "prd-firewall"
+  network = google_compute_network.prd.name
 
   allow {
     protocol = "icmp"
@@ -16,9 +16,9 @@ resource "google_compute_firewall "PRD" {
 }
 
 ## QAT Firewall Rules
-resource "google_compute_firewall "QAT" {
-  name    = "dev-firewall"
-  network = google_compute_network.qat.id
+resource "google_compute_firewall "qat" {
+  name    = "qat-firewall"
+  network = google_compute_network.qat.name
 
   allow {
     protocol = "icmp"
@@ -33,9 +33,9 @@ resource "google_compute_firewall "QAT" {
 }
 
 ## DEV Firewall Rules
-resource "google_compute_firewall "DEV" {
+resource "google_compute_firewall "dev" {
   name    = "dev-firewall"
-  network = google_compute_network.dev.id
+  network = google_compute_network.dev.name
 
   allow {
     protocol = "icmp"
