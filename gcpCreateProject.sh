@@ -33,3 +33,7 @@ gcloud --project $PROJECT_ID services enable compute.googleapis.com
 
 # Service Networking API
 gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
+
+export GOOGLE_APPLICATION_CREDENTIALS=credentials.json
+export GOOGLE_PROJECT_ID=$PROJECT_ID
+export GOOGLE_PROJECT_NETWORK=(gcloud compute networks list --project $PROJECT_ID |awk '{print $1}'|grep -v 'NAME')
