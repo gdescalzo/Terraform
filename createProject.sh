@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#ORGANIZATION_ID="$2"
 PROJECT_ID=$1
 ACCOUNT_ID=$(gcloud alpha billing accounts list |awk '{print $1}'|grep -v 'ACCOUNT_ID')
 SERVICE_ACCOUNT_ID=$PROJECT_ID
@@ -8,7 +9,7 @@ DISPLAY_NAME="$PROJECT_ID"
 KEY_FILE="$PROJECT_ID"
 
 ## Creamos el proyecto
-gcloud alpha projects create $PROJECT_ID
+gcloud alpha projects create $PROJECT_ID # [--organization $ORGANIZATION_ID]
 
 ## Asociamos la cuenta de facturacion a el proyecto creado
 gcloud alpha billing accounts projects link $PROJECT_ID --billing-account=$ACCOUNT_ID
@@ -20,4 +21,15 @@ gcloud iam service-accounts create $SERVICE_ACCOUNT_ID --display-name=$DISPLAY_N
 gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/iam.serviceAccountUser"
 
 ## Creamo la key de la service account
-gcloud iam service-accounts keys create $KEY_FILE --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
+gcloud iam service-accounts keys create ./vars/$KEY_FILE.json --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
+
+## Habilitamos las API para el Proyecto
+
+# Kubernetes API
+gcloud --project $PROJECT_ID services enable container.googleapis.com
+
+# Compute API
+gcloud --project $PROJECT_ID services enable compute.googleapis.com
+
+# Service Networking API
+gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
