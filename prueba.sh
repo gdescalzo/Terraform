@@ -1,7 +1,0 @@
-#!/bin/bash
-
-CONCHA=22
-
-export GOOGLE_APPLICATION_CREDENTIALS=
-export PRUEBA=$CONCHA
-bash
