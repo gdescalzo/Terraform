@@ -15,7 +15,7 @@ resource "google_compute_network" "prd" {
 # https://www.terraform.io/docs/providers/google/r/compute_subnetwork.html
 
 resource "google_compute_subnetwork" "prd" {
-  name          = "qat"
+  name          = "prd"
   ip_cidr_range = "10.166.3.0/24"
   region        = "southamerica-west1"
   network       = google_compute_network.prd.id

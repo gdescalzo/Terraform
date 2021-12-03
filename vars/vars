@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PROJECT_ID=$1
+ACCOUNT_ID=$(gcloud alpha billing accounts list |awk '{print $1}'|grep -v 'ACCOUNT_ID')
+SERVICE_ACCOUNT_ID=$PROJECT_ID
+DESCRIPTION="Cuenta de servicio para $PROJECT_ID"
+DISPLAY_NAME="$PROJECT_ID"
+KEY_FILE="credentials"
+

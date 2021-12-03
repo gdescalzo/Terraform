@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ### EXAMPLE:
 #[root@gsv-gastion terraform-gcp]# gcloud auth application-default login  --no-launch-browser
 #Go to the following link in your browser:
@@ -9,4 +8,8 @@
 
 #Enter verification code:
 
+gcp_login() {
+
 gcloud auth application-default login --no-launch-browser
+
+}

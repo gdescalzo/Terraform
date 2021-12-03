@@ -1,0 +1,20 @@
+#!/bin/bash
+
+gcp_EnableApis() {
+
+    # Vars
+    #PROJECT_ID=$TF_VAR_gcpProjectId
+
+    ## Habilitamos las API para el Proyecto
+
+        # Network API
+        gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
+        
+        # Compute API
+        gcloud --project $PROJECT_ID services enable compute.googleapis.com
+
+        # Kubernetes API
+        gcloud --project $PROJECT_ID services enable container.googleapis.com
+
+}
+

@@ -1,0 +1,23 @@
+#!/bin/bash
+
+gpc_DeleteDefaulNetwork() {
+
+    # Vars
+    #PROJECT_ID=$TF_VAR_gcpProjectId
+    DEFAULT_PROJECT_NETWORK=$(gcloud compute networks list --project $PROJECT_ID --format="table(name)" | awk '{print $1}' | grep -v 'NAME')
+    DEFAULT_PROJECT_NETWORK_SUBNETS=$(gcloud compute networks subnets list --project $PROJECT_ID --format="table(name)" | awk '{print $1}' | grep -v 'NAME')
+    DEFAULT_PROJECT_NETWORK_FIREWALL_RULES=$(gcloud compute firewall-rules list --format="table(name)" --project $PROJECT_ID | awk '{print $1}'|grep -v 'NAME')
+
+
+    ## Eliminamos las reglas de firewall
+
+    for i in $DEFAULT_PROJECT_NETWORK_FIREWALL_RULES 
+    do
+        printf 'y' | gcloud compute firewall-rules delete $i --project $PROJECT_ID
+    done
+
+    ## Eliminamos la red
+    printf 'y' | gcloud compute networks delete $DEFAULT_PROJECT_NETWORK --project $PROJECT_ID
+
+}
+
