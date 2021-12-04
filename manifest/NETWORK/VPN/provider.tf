@@ -1,5 +1,7 @@
 variable "gcpProjectId" {}
 variable "gcpAppPwd" {}
+variable "gcpSAdisplayName" {}
+variable "gcpSAid" {}
 
 provider "google" {
     credentials = file("${var.gcpAppPwd}")

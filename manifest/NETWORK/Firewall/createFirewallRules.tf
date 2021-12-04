@@ -1,7 +1,8 @@
 ## PRD Firewall Rules
-resource "google_compute_firewall "prd" {
-  name    = "prd-firewall"
-  network = google_compute_network.prd.name
+resource "google_compute_firewall" "prd" {
+  project     = var.gcpProjectId
+  name        = "prd"
+  network     = "prd"
 
   allow {
     protocol = "icmp"
@@ -11,14 +12,14 @@ resource "google_compute_firewall "prd" {
     protocol = "tcp"
     ports    = ["80", "8080", "1000-2000"]
   }
-
-  source_tags = ["web"]
+  source_ranges = ["0.0.0.0/0"]
 }
 
 ## QAT Firewall Rules
-resource "google_compute_firewall "qat" {
-  name    = "qat-firewall"
-  network = google_compute_network.qat.name
+resource "google_compute_firewall" "qat" {
+  project     = var.gcpProjectId
+  name        = "qat"
+  network     = "qat"
 
   allow {
     protocol = "icmp"
@@ -28,14 +29,14 @@ resource "google_compute_firewall "qat" {
     protocol = "tcp"
     ports    = ["80", "8080", "1000-2000"]
   }
+  source_ranges = ["0.0.0.0/0"]  
 
-  source_tags = ["web"]
 }
-
 ## DEV Firewall Rules
-resource "google_compute_firewall "dev" {
-  name    = "dev-firewall"
-  network = google_compute_network.dev.name
+resource "google_compute_firewall" "dev" {
+  project     = var.gcpProjectId
+  name        = "dev"
+  network     = "dev"
 
   allow {
     protocol = "icmp"
@@ -43,8 +44,8 @@ resource "google_compute_firewall "dev" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
-  }
+    ports    = ["80", "443", "943", "945", "1194"]
 
-  source_tags = ["web"]
+  }
+  source_ranges = ["0.0.0.0/0"]
 }

@@ -8,7 +8,7 @@ source ./func/gcpLogin
 source ./func/gcpEnableGcpApis
 source ./func/gcpDeleteDefaultSubnet
 
-echo "$PROJECT_ID"
+#echo "$PROJECT_ID"
 
 ##  Creamos el proyecto
     echo ""
@@ -24,7 +24,8 @@ echo "$PROJECT_ID"
     echo "Asociamos la cuenta de facturacion al proyecto creado"
     echo "######################################################"
     echo ""
-    gcloud alpha billing accounts projects link $PROJECT_ID --billing-account=$ACCOUNT_ID
+    gcloud alpha billing accounts projects link $PROJECT_ID \
+    --billing-account=$ACCOUNT_ID
 
     ## Creamos el service account para el proyecto.
     echo ""
@@ -32,7 +33,9 @@ echo "$PROJECT_ID"
     echo "#### Creamos el service account para el proyecto. ####"
     echo "######################################################"
     echo ""
-    gcloud iam service-accounts create $SERVICE_ACCOUNT_ID --display-name=$DISPLAY_NAME --project=$PROJECT_ID
+    gcloud iam service-accounts create $SERVICE_ACCOUNT_ID \
+    --display-name=$DISPLAY_NAME \
+    --project=$PROJECT_ID
 
     ## Asignamos un role al service account (admin)
     echo ""
@@ -40,7 +43,9 @@ echo "$PROJECT_ID"
     echo "#### Asignamos un role al service account (admin) ####"
     echo "######################################################"
     echo ""
-    gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/owner"
+    gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
+    --role="roles/owner"
 
     ## Creamos la key de la service account
     echo ""
@@ -48,7 +53,8 @@ echo "$PROJECT_ID"
     echo "########### Descargamos las credenciales  ############ "
     echo "######################################################"
     echo ""
-    gcloud iam service-accounts keys create ./manifest/VARS/$KEY_FILE.json --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
+    gcloud iam service-accounts keys create ./manifest/VARS/$KEY_FILE.json \
+    --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
 
 # Habilitamos las APIs
 
@@ -82,4 +88,6 @@ echo "$PROJECT_ID"
     echo ""
     export TF_VAR_gcpAppPwd=$(pwd)/manifest/VARS/$KEY_FILE.json
     export TF_VAR_gcpProjectId=$PROJECT_ID
+    export TF_VAR_gcpSAdisplayName=$(gcloud iam service-accounts list --format="table(displayName)" --project $PROJECT_ID | awk '{print $1}' | grep -v 'NAME' |grep "$PROJECT_ID")
+    export TF_VAR_gcpSAid=$(gcloud iam service-accounts list --format="table(email)" --project $PROJECT_ID | awk '{print $1}' | grep -v 'EMAIL' |grep "$PROJECT_ID")
     bash
