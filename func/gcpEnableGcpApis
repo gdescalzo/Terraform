@@ -2,9 +2,6 @@
 
 gcp_EnableApis() {
 
-    # Vars
-    #PROJECT_ID=$TF_VAR_gcpProjectId
-
     ## Habilitamos las API para el Proyecto
 
         # Network API
@@ -16,5 +13,9 @@ gcp_EnableApis() {
         # Kubernetes API
         gcloud --project $PROJECT_ID services enable container.googleapis.com
 
+        # OpenVPN
+        # https://console.cloud.google.com/marketplace/product/openvpn-access-server-200800/openvpn-access-server?hl=es&project=poc-ecommerce30
+        gcloud --project $PROJECT_ID services enable deploymentmanager.googleapis.com   # Cloud Deployment Manager V2 API
+        gcloud --project $PROJECT_ID services enable runtimeconfig.googleapis.com       # Cloud Runtime Configuration API
 }
 
