@@ -7,62 +7,36 @@ source ./vars/vars
 source ./func/gcpLogin
 source ./func/gcpEnableGcpApis
 source ./func/gcpDeleteDefaultSubnet
-
-#echo "$PROJECT_ID"
+source ./func/showMessage
 
 ##  Creamos el proyecto
-    echo ""
-    echo "######################################################"
-    echo "################ Creamos el proyecto #################"
-    echo "######################################################"
-    echo ""
+    showMessage "Creamos el proyecto"
     gcloud alpha projects create $PROJECT_ID # [--organization $ORGANIZATION_ID]
 
     ## Asociamos la cuenta de facturacion a el proyecto creado
-    echo ""
-    echo "######################################################"
-    echo "Asociamos la cuenta de facturacion al proyecto creado"
-    echo "######################################################"
-    echo ""
+    showMessage "Asociamos la cuenta de facturacion al proyecto creado"
     gcloud alpha billing accounts projects link $PROJECT_ID \
     --billing-account=$ACCOUNT_ID
 
     ## Creamos el service account para el proyecto.
-    echo ""
-    echo "######################################################"
-    echo "#### Creamos el service account para el proyecto. ####"
-    echo "######################################################"
-    echo ""
+    showMessage "Creamos el service account para el proyecto"
     gcloud iam service-accounts create $SERVICE_ACCOUNT_ID \
     --display-name=$DISPLAY_NAME \
     --project=$PROJECT_ID
 
     ## Asignamos un role al service account (admin)
-    echo ""
-    echo "######################################################"
-    echo "#### Asignamos un role al service account (admin) ####"
-    echo "######################################################"
-    echo ""
+    showMessage "Asignamos un role al service account (admin)"
     gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/owner"
 
     ## Creamos la key de la service account
-    echo ""
-    echo "######################################################"
-    echo "########### Descargamos las credenciales  ############ "
-    echo "######################################################"
-    echo ""
+    showMessage "Descargamos las credenciales"
     gcloud iam service-accounts keys create ./manifest/VARS/$KEY_FILE.json \
     --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
 
 # Habilitamos las APIs
-
-    echo ""
-    echo "######################################################"
-    echo "### Habilitamos API Network Compute y Kubernetes #####"
-    echo "######################################################"
-    echo ""
+    showMessage "Habilitamos API Network Compute y Kubernetes"
     echo "Lesto puede tardar..." && date
     echo ""
         gcp_EnableApis $PROJECT_ID
@@ -71,21 +45,13 @@ source ./func/gcpDeleteDefaultSubnet
     date
 
 # Eliminamos la default network
-    echo ""
-    echo "######################################################"
-    echo "########### Eliminamos la default network ############"
-    echo "######################################################"
-    echo ""
+    showMessage "Eliminamos la default network"
         gpc_DeleteDefaulNetwork $PROJECT_ID
     echo ""
     echo ">>>>>>>>>>>>>> Default network eliminada <<<<<<<<<<<<<"
 
 # Exportamos la variables de entorno para Terraform y Ansible.
-    echo ""
-    echo "######################################################"
-    echo "### Export vars de entorno para Terraform y Ansible.##"
-    echo "######################################################"
-    echo ""
+    showMessage "Export vars de entorno para Terraform y Ansible"
     export TF_VAR_gcpAppPwd=$(pwd)/manifest/VARS/$KEY_FILE.json
     export TF_VAR_gcpProjectId=$PROJECT_ID
     export TF_VAR_gcpSAdisplayName=$(gcloud iam service-accounts list --format="table(displayName)" --project $PROJECT_ID | awk '{print $1}' | grep -v 'NAME' |grep "$PROJECT_ID")
