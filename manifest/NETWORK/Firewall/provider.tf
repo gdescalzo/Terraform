@@ -8,3 +8,4 @@ provider "google" {
     region = "${var.gcpRegion}"
     zone = "${var.gcpZone}"
     project = "${var.gcpProjectId}"
+}
