@@ -17,5 +17,9 @@ gcp_EnableApis() {
         # https://console.cloud.google.com/marketplace/product/openvpn-access-server-200800/openvpn-access-server?hl=es&project=poc-ecommerce30
         gcloud --project $PROJECT_ID services enable deploymentmanager.googleapis.com   # Cloud Deployment Manager V2 API
         gcloud --project $PROJECT_ID services enable runtimeconfig.googleapis.com       # Cloud Runtime Configuration API
+
+        # ServerLess (Cloud SQL for MySQL)
+        gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
+
 }
 

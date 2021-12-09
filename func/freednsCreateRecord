@@ -1,0 +1,7 @@
+#!/bin/bash
+
+URL="https://freedns.afraid.org/subdomain/edit.php?edit_domain_id=1246807"
+username=$1
+password=$2
+
+curl -u $username:$password $URL
