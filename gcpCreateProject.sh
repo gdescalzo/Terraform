@@ -56,4 +56,6 @@ source ./func/showMessage
     export TF_VAR_gcpProjectId=$PROJECT_ID
     export TF_VAR_gcpSAdisplayName=$(gcloud iam service-accounts list --format="table(displayName)" --project $PROJECT_ID | awk '{print $1}' | grep -v 'NAME' |grep "$PROJECT_ID")
     export TF_VAR_gcpSAid=$(gcloud iam service-accounts list --format="table(email)" --project $PROJECT_ID | awk '{print $1}' | grep -v 'EMAIL' |grep "$PROJECT_ID")
+    export TF_VAR_gcpRegion="southamerica-west1"
+    export TF_VAR_gcpZone="southamerica-west1-a"
     bash

@@ -2,24 +2,26 @@
 
 gcp_EnableApis() {
 
+    # Cargamos libreria de mensajes.
+        source ./showMessage
+
     ## Habilitamos las API para el Proyecto
 
-        # Network API
+        showMessage "Network API"
         gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
         
-        # Compute API
+        showMessage "Compute API"
         gcloud --project $PROJECT_ID services enable compute.googleapis.com
 
-        # Kubernetes API
+        showMessage "Kubernetes API"
         gcloud --project $PROJECT_ID services enable container.googleapis.com
 
-        # OpenVPN
+        showMessage "OpenVPN"
         # https://console.cloud.google.com/marketplace/product/openvpn-access-server-200800/openvpn-access-server?hl=es&project=poc-ecommerce30
         gcloud --project $PROJECT_ID services enable deploymentmanager.googleapis.com   # Cloud Deployment Manager V2 API
         gcloud --project $PROJECT_ID services enable runtimeconfig.googleapis.com       # Cloud Runtime Configuration API
 
-        # ServerLess (Cloud SQL for MySQL)
+        showMessage "ServerLess (Cloud SQL for MySQL)"
         gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
-
+        gcloud --project $PROJECT_ID services enable sqladmin.googleapis.com
 }
-

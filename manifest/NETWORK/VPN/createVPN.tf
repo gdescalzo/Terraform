@@ -2,7 +2,7 @@
 resource "google_compute_instance" "vpn" {
   name         = "vpn-${var.gcpProjectId}"
   machine_type = "e2-micro"
-  zone         = "southamerica-west1-a"
+  zone         = "${var.gcpZone}"
 
   tags = ["vpn", "${var.gcpProjectId}"]
 
