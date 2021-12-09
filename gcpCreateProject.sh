@@ -30,6 +30,12 @@ source ./func/showMessage
     --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/owner"
 
+    ## Asignamos un role al service account (admin)
+    showMessage "Asignamos un role al Cloud SQL (admin)"
+    gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
+    --role="roles/cloudsql.admin"
+
     ## Creamos la key de la service account
     showMessage "Descargamos las credenciales"
     gcloud iam service-accounts keys create ./manifest/VARS/$KEY_FILE.json \

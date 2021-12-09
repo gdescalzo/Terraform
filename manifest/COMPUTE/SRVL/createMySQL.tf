@@ -1,16 +1,28 @@
+resource "google_sql_database_instance" "dbmysql" {
+  name = "db-${var.gcpProjectId}"
+  database_version = "MYSQL_5_7"
 
-
-
-resource "google_sql_database_instance" "master" {
-  name             = "db-${var.gcpProjectId}"
-  database_version = "POSTGRES_11"
-  region           = "${var.gcpRegion}"
-
-  settings {
-    # Second-generation instance tiers are based on the machine
-    # type. See argument reference below.
+  settings{
     tier = "db-f1-micro"
-
-    
+     user_labels = {
+      "environment" = "development"
+    }
+    maintenance_window {
+      day  = "1"
+      hour = "4"
+    }
+    backup_configuration {
+      enabled = true
+      start_time = "04:30"
+    } 
   }
+}
+resource "google_sql_user" "users" {
+  name     = "peron"
+  instance = google_sql_database_instance.dbmysql.name
+  password = "n0T1ad0y"
+}
+resource "google_sql_database" "database" {
+  name     = "db-${var.gcpProjectId}"
+  instance = google_sql_database_instance.dbmysql.name
 }
