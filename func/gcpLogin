@@ -12,13 +12,12 @@
 
 #Enter verification code:
 
-
+# Logeamos nuesta cuenta.
 gcp_login() {
-
 gcloud auth application-default login --no-launch-browser
-
 }
 
+# Deslogueamos la cuenta actual por precaucion.
 gcp_logout(){
     gcloud auth revoke --all
 }
