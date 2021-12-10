@@ -1,13 +1,13 @@
 #!/bin/bash
 
 # Declaramos las variables 
-source ./vars/vars
+. ./vars/vars
 
 # Incluimos las librerias.
-source ./func/gcpLogin
-source ./func/gcpEnableGcpApis
-source ./func/gcpDeleteDefaultSubnet
-source ./func/showMessage
+. ./func/gcpLogin
+. ./func/gcpEnableGcpApis
+. ./func/gcpDeleteDefaultSubnet
+. ./func/showMessage
 
 ##  Creamos el proyecto
     showMessage "Creamos el proyecto"

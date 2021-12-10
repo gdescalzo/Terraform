@@ -1,0 +1,43 @@
+#!/bin/bash
+
+installDependencies(){
+
+# Cargamos libreria
+. checkOS
+. installGcloud
+
+# Verificamos Plataforma.
+checkOS
+
+# Declaramos las variables.
+LINUX=LINUX
+BSD=BSD
+SOLARIS=SOLARIS
+
+# Instalamos dependencias.
+if [ "$checkOSvar" == "$LINUX" ];
+then
+        if [[ `which yum` ]];       # Fedora Distributions
+        then
+                yum update -y && yum install curl -y
+                gcloudInstall
+
+        elif [[ `which apt` ]];     # Debian Distributions
+        then
+                apt update -y && apt install curl -y
+                gcloudInstall
+
+        else                        # OS Desconocido.
+            echo    "Sistema operativo desconocido \
+                    por favor instale curl para continuar"
+    fi
+
+elif [ "$checkOSvar" == "$BSD" ];
+then
+    echo "Por favor instale curl para continuar"
+
+elif [ "$checkOSvar" == "$SOLARIS" ];
+then
+    echo "Por favor instale curl para continuar"
+fi
+}

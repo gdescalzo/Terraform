@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Verificamos que sistema operativo es:
+checkOS(){
+    case "$OSTYPE" in
+    solaris*) export checkOSvar="SOLARIS" ;;
+    darwin*)  export checkOSvar="OSX" ;; 
+    linux*)   export checkOSvar="LINUX" ;;
+    bsd*)     export checkOSvar="BSD" ;;
+    msys*)    export checkOSvar="WINDOWS" ;;
+    *)        export checkOSvar="unknown: $OSTYPE" ;;
+    esac
+}
