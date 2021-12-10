@@ -7,6 +7,10 @@ resource "google_sql_database_instance" "dbmysql" {
      user_labels = {
       "environment" = "development"
     }
+    ip_configuration {
+      ipv4_enabled    = false
+      private_network = google_compute_network.dev.id
+    }
     maintenance_window {
       day  = "1"
       hour = "4"

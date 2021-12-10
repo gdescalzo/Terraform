@@ -30,11 +30,17 @@ source ./func/showMessage
     --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/owner"
 
-    ## Asignamos un role al service account (admin)
+    ## Asignamos un role al service account (Cloud SQL)
     showMessage "Asignamos un role al Cloud SQL (admin)"
     gcloud projects add-iam-policy-binding $PROJECT_ID \
     --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
     --role="roles/cloudsql.admin"
+
+    ## Asignamos un role al service account (Serverless VPC Access)
+    showMessage "Asignamos un role al Serverless VPC Access (admin)"
+    gcloud projects add-iam-policy-binding $PROJECT_ID \
+    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
+    --role="roles/vpcaccess.admin"
 
     ## Creamos la key de la service account
     showMessage "Descargamos las credenciales"
