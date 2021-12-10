@@ -6,4 +6,5 @@ SERVICE_ACCOUNT_ID=$PROJECT_ID
 DESCRIPTION="Cuenta de servicio para $PROJECT_ID"
 DISPLAY_NAME="$PROJECT_ID"
 KEY_FILE="credentials"
+ACTUAL_ACCOUNT_ID=$(gcloud auth list --format="value(account)")
 
