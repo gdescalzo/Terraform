@@ -2,13 +2,6 @@
 
 installDependencies(){
 
-# Cargamos libreria
-. checkOS
-. installGcloud
-
-# Verificamos Plataforma.
-checkOS
-
 # Declaramos las variables.
 LINUX=LINUX
 BSD=BSD
