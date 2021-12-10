@@ -10,7 +10,7 @@ resource "google_compute_firewall" "prd" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
+    ports    = ["22", "80", "8080", "443", "1000-2000"]
   }
   source_ranges = ["0.0.0.0/0"]
 }
@@ -27,7 +27,7 @@ resource "google_compute_firewall" "qat" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "8080", "1000-2000"]
+    ports    = ["22", "80", "8080", "443", "1000-2000"]
   }
   source_ranges = ["0.0.0.0/0"]  
 
@@ -44,7 +44,7 @@ resource "google_compute_firewall" "dev" {
 
   allow {
     protocol = "tcp"
-    ports    = ["80", "443", "943", "945", "1194"]
+    ports    = ["22", "80", "443", "943", "945", "1194"]
 
   }
   source_ranges = ["0.0.0.0/0"]

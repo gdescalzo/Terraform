@@ -17,7 +17,7 @@ resource "google_compute_network" "prd" {
 resource "google_compute_subnetwork" "prd" {
   name          = "prd"
   ip_cidr_range = "10.166.3.0/24"
-  region        = "southamerica-west1"
+  region        = "${var.gcpRegion}" 
   network       = google_compute_network.prd.id
 }
 
@@ -38,7 +38,7 @@ resource "google_compute_network" "qat" {
 resource "google_compute_subnetwork" "qat" {
   name          = "qat"
   ip_cidr_range = "10.166.30.0/24"
-  region        = "southamerica-west1"
+  region        = "${var.gcpRegion}" 
   network       = google_compute_network.qat.id
 }
 
@@ -59,6 +59,6 @@ resource "google_compute_network" "dev" {
 resource "google_compute_subnetwork" "dev" {
   name          = "dev"
   ip_cidr_range = "10.166.33.0/24"
-  region        = "southamerica-west1"
+  region        = "${var.gcpRegion}" 
   network       = google_compute_network.dev.id
 }

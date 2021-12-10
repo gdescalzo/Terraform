@@ -1,0 +1,13 @@
+#!/bin/bash
+
+gcloudInstallCheck1(){
+   command -v gcloud >/dev/null 2>&1
+}
+
+gcloudInstallCheck2(){
+    type gcloud >/dev/null 2>&1
+}
+
+gcloudInstallCheck3(){
+    hash gcloud #2>/dev/null
+}

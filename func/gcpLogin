@@ -12,8 +12,14 @@
 
 #Enter verification code:
 
+
 gcp_login() {
 
 gcloud auth application-default login --no-launch-browser
 
 }
+
+gcp_logout(){
+    gcloud auth revoke --all
+}
+

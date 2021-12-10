@@ -2,7 +2,7 @@
 resource "google_compute_instance" "vpn" {
   name         = "vpn-${var.gcpProjectId}"
   machine_type = "e2-micro"
-  zone         = "southamerica-west1-a"
+  zone         = "${var.gcpZone}"
 
   tags = ["vpn", "${var.gcpProjectId}"]
 
@@ -16,12 +16,14 @@ resource "google_compute_instance" "vpn" {
     }
   }
 
+#metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask"
+
   network_interface {
     network = "dev"
     subnetwork = "dev"
 
     access_config {
-      // Ephemeral public IP
+      // Include this section to give the VM an external ip address
     }
   }
 }
