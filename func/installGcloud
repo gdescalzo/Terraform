@@ -1,7 +1,14 @@
 #!/bin/bash
 
 gcloudInstall(){
-    curl https://sdk.cloud.google.com | bash
-    exec -l $SHELL
-    gcloud init --quiet
+
+    # Verificamos si esta instalado
+    if ! command -v gcloud &> /dev/null
+    then
+        curl https://sdk.cloud.google.com | bash
+        exec -l $SHELL
+        #gcloud init --quiet
+    else
+        echo "###############################"
+        echo "Google Cloud SDK esta Instalado"
 }
