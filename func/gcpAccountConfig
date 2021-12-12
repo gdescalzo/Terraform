@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Cargamos las librerias
-. ./func/checkOS
-. ./func/installGcloud
-. ./func/installDependencies
+. checkOS
+. installGcloud
+. installDependencies
 
 # Verificamos OS y Plataformas
 checkOS

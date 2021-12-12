@@ -1,0 +1,10 @@
+#!/bin/bash
+
+gpc_CreateSAkey(){
+
+#Cargamos libreria de mensajes
+. ./func/showMessage
+    
+    showMessage "Descargamos las credenciales"
+    gcloud iam service-accounts keys create ../manifest/VARS/$KEY_FILE.json --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
+}

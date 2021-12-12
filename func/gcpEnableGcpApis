@@ -2,10 +2,14 @@
 
 gcp_EnableApis() {
 
-    # Cargamos libreria de mensajes.
-        source ./showMessage
+# Cargamos libreria de mensajes.
+. ./func/showMessage
 
     ## Habilitamos las API para el Proyecto
+
+    showMessage "Habilitamos API Network Compute y Kubernetes"
+    echo "Esto puede tardar..." && date
+    echo ""
 
         showMessage "Network API"
         gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
@@ -24,4 +28,9 @@ gcp_EnableApis() {
         showMessage "ServerLess (Cloud SQL for MySQL)"
         gcloud --project $PROJECT_ID services enable servicenetworking.googleapis.com
         gcloud --project $PROJECT_ID services enable sqladmin.googleapis.com
+
+    echo ""
+    echo ">>>>>>>>>> Compute y Kubernetes habilitadas <<<<<<<<<<"
+    date
+
 }

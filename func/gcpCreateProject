@@ -1,0 +1,16 @@
+#!/bin/bash
+
+gcp_CreateProject(){
+
+## Cargamos libreria de mensajes.
+. ./func/showMessage
+
+showMessage "Creamos el proyecto"
+gcloud alpha projects create $PROJECT_ID # [--organization $ORGANIZATION_ID]
+
+showMessage "Asociamos la cuenta de facturacion al proyecto creado"
+gcloud alpha billing accounts projects link $PROJECT_ID --billing-account=$ACCOUNT_ID
+
+showMessage "Creamos el service account para el proyecto"
+gcloud iam service-accounts create $SERVICE_ACCOUNT_ID --display-name=$DISPLAY_NAME --project=$PROJECT_ID
+}

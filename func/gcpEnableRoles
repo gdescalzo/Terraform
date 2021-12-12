@@ -1,26 +1,19 @@
 #!/bin/bash
 
-gcp_roleOwner(){
-    ## Asignamos un role al service account (Owner)
+gcp_EnableRoles(){
+
+## Cargamos libreria de mensaje
+. ./func/showMessage
+
+    showMessage "Asignamos role al service account (Owner)"
     gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/owner"
-}
 
-gcp_roleResourceManager(){
-    ## Asignamos un role al service account (Projec Creator)
-    gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/resourcemanager.projectCreator"    
-}
+    showMessage "Asignamos role al service accoun (Cloud SQL Admin)"
+    gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/cloudsql.admin"  
 
-gcp_roleCloudSQL(){
-    ## Asignamos un role al service account (Cloud SQL)
-    gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/cloudsql.admin"
-}
-
-gpc_roleVPCaccess(){
-    ## Asignamos un role al service account (Serverless VPC Access)
+    showMessage "Asignamos role al service accoun (VPC Access Admin)"
     gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/vpcaccess.admin"
-}
 
-gcp_roleViewer(){    
-    ## Asignamos un role al service account (viewer) 
+    showMessage "Asignamos role al service account (Viewer)"
     gcloud projects add-iam-policy-binding $PROJECT_ID --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" --role="roles/viewer"
 }

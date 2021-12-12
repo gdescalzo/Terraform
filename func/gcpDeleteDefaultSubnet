@@ -2,6 +2,10 @@
 
 gpc_DeleteDefaulNetwork() {
 
+. ./func/showMessage
+
+showMessage "Eliminamos la default network"
+
     # Vars
     #PROJECT_ID=$TF_VAR_gcpProjectId
     DEFAULT_PROJECT_NETWORK=$(gcloud compute networks list --project $PROJECT_ID --format="table(name)" | awk '{print $1}' | grep -v 'NAME')
@@ -18,6 +22,9 @@ gpc_DeleteDefaulNetwork() {
 
     ## Eliminamos la red
     printf 'y' | gcloud compute networks delete $DEFAULT_PROJECT_NETWORK --project $PROJECT_ID
+
+echo ""
+echo ">>>>>>>>>>>>>> Default network eliminada <<<<<<<<<<<<<"
 
 }
 
