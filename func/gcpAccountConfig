@@ -3,9 +3,9 @@
 gcp_gcloudSDK(){
 
 # Cargamos las librerias
-. ./checkOS
-. ./installDependencies
-. ./installGcloud
+. ./func/checkOS
+. ./func/installDependencies
+. ./func/installGcloud
 
 # Verificamos OS y Plataformas
 checkOS
