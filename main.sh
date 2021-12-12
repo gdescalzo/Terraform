@@ -10,6 +10,10 @@
 . ./func/gcpEnableGcpApis
 . ./func/gcpEnableRoles
 . ./func/exportTFvars
+. ./func/gcpAccountConfig
+
+# Verificamos si esta instalado Google Cloud SDK
+gcp_gcloudSDK
 
     ## Creamos el proyecto
     gcp_CreateProject $PROJECT_ID $ACCOUNT_ID $SERVICE_ACCOUNT_ID $DISPLAY_NAME

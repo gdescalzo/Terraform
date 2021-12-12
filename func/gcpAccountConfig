@@ -1,15 +1,21 @@
 #!/bin/bash
 
+gcp_gcloudSDK(){
+
 # Cargamos las librerias
-. checkOS
-. installGcloud
-. installDependencies
+. ./checkOS
+. ./installDependencies
+. ./installGcloud
 
 # Verificamos OS y Plataformas
 checkOS
 
 # Instalamos Dependencias
-installDependencies gcloudInstall
+install_Dependencies
+
+# Instalamos Google Cloud SDK
+installGcloud
+}
 
 
 

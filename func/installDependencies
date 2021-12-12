@@ -1,6 +1,6 @@
 #!/bin/bash
 
-installDependencies(){
+install_Dependencies(){
 
 # Declaramos las variables.
 LINUX=LINUX
@@ -13,12 +13,12 @@ then
         if [[ `which yum` ]];       # Fedora Distributions
         then
                 yum update -y && yum install curl -y
-                gcloudInstall
+                #gcloudInstall
 
         elif [[ `which apt` ]];     # Debian Distributions
         then
                 apt update -y && apt install curl -y
-                gcloudInstall
+                #gcloudInstall
 
         else                        # OS Desconocido.
             echo    "Sistema operativo desconocido \
