@@ -5,6 +5,7 @@
 
 # Incluimos las librerias.
 . ./func/gcpLogin
+. ./func/gcpEnableRoles
 . ./func/gcpEnableGcpApis
 . ./func/gcpDeleteDefaultSubnet
 . ./func/showMessage
@@ -24,25 +25,20 @@
     --display-name=$DISPLAY_NAME \
     --project=$PROJECT_ID
 
-    ## Asignamos un role al service account (admin)
-    showMessage "Asignamos un role al service account (admin)"
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
-    --role="roles/owner"
+## Asignamos Role al service account:
+    showMessage "Asignamos role al service account (Owner)"
+    gcp_roleOwner $SERVICE_ACCOUNT_ID $PROJECT_ID
 
-    ## Asignamos un role al service account (Cloud SQL)
-    showMessage "Asignamos un role al Cloud SQL (admin)"
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
-    --role="roles/cloudsql.admin"
+    showMessage "Asignamos role al service accoun (Cloud SQL Admin)"
+    gcp_roleCloudSQL  $SERVICE_ACCOUNT_ID $PROJECT_ID
 
-    ## Asignamos un role al service account (Serverless VPC Access)
-    showMessage "Asignamos un role al Serverless VPC Access (admin)"
-    gcloud projects add-iam-policy-binding $PROJECT_ID \
-    --member="serviceAccount:$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com" \
-    --role="roles/vpcaccess.admin"
+    showMessage "Asignamos role al service accoun (VPC Access Admin)"
+    gpc_roleVPCaccess  $SERVICE_ACCOUNT_ID $PROJECT_ID
 
-    ## Creamos la key de la service account
+    showMessage "Asignamos role al service account (Viewer)"
+    gcp_roleViewer  $SERVICE_ACCOUNT_ID $PROJECT_ID
+
+# Creamos la key de la service account
     showMessage "Descargamos las credenciales"
     gcloud iam service-accounts keys create ./manifest/VARS/$KEY_FILE.json \
     --iam-account=$SERVICE_ACCOUNT_ID@$PROJECT_ID.iam.gserviceaccount.com
