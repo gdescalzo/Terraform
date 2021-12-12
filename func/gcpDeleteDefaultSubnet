@@ -25,6 +25,5 @@ showMessage "Eliminamos la default network"
 
 echo ""
 echo ">>>>>>>>>>>>>> Default network eliminada <<<<<<<<<<<<<"
-
 }
 
