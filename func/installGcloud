@@ -19,6 +19,11 @@ then
     echo "    Se instalo Google Cloud SDK"
     echo "###################################"
     echo ""
+
+    # Agregamos el comando gcloud al ~/.bashrc
+    echo "source /root/google-cloud-sdk/completion.bash.inc" >> ~/.bashrc
+    echo "source /root/google-cloud-sdk/path.bash.inc" >> ~/.bashrc
+
 else
     echo ""
     echo "###############################"
