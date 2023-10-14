@@ -8,7 +8,7 @@
 
 An overview of what will be created on AWS onece execute the terraform manifiest.
 
-![vpc_map.png](./launch-vpc/img/vpc_map.png)
+![vpc_map.png](./img/vpc_map.png)
 
 ## VPC Components
 
