@@ -43,7 +43,7 @@ An overview of what will be created on AWS onece execute the terraform manifiest
 │   main.tf
 │   outputs.tf
 │   README.md
-│   variables.tf <-- HERE you can change the VPC addressing and the Region.
+│   variables.tf <-- HERE you can change the Public Subnets configuration.
 │ 
 ```
 
