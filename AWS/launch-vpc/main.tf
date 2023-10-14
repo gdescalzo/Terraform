@@ -1,7 +1,6 @@
 provider "aws" {
     region  = var.aws_region
 }
-
 module "module_vpc" {
   source = "./modules/vpc"
   vpc_cidr_block = var.vpc_cidr_block
@@ -27,4 +26,12 @@ module "module_igw" {
   source = "./modules/igw"
   vpc_id = module.module_vpc.vpc_id
   igw_name = var.igw_name
+}
+
+module "module_routing_table" {
+  source = "./modules/routing_table"
+  vpc_id = module.module_vpc.vpc_id
+  public_routing_table_name = var.igw_name
+  igw_id = module.module_igw.igw_id
+  subnet_public_id = module.module_subnets.subnet_public_id
 }

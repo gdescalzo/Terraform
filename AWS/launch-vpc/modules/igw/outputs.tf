@@ -1,3 +1,3 @@
-variable "vpc_id" {
-    type = string  
+output "igw_id" {
+    value = aws_internet_gateway.igw.id  
 }
