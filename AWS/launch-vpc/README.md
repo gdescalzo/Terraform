@@ -19,6 +19,7 @@ An overview of what will be created on AWS onece execute the terraform manifiest
 
 ## Terraform Modules
 
+```
 \
 │   main.tf
 │   outputs.tf
@@ -47,3 +48,4 @@ An overview of what will be created on AWS onece execute the terraform manifiest
             main.tf
             output.tf
             variables.tf
+```
