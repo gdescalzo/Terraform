@@ -35,3 +35,10 @@ module "module_routing_table" {
   igw_id = module.module_igw.igw_id
   subnet_public_id = module.module_subnets.subnet_public_id
 }
+
+module "module_security_groups" {
+  vpc_id = module.module_vpc.vpc_id
+  source = "./modules/sg"
+  security_group_public_ingress = var.security_group_public_ingress
+  security_group_public_egress = var.security_group_public_egress
+}

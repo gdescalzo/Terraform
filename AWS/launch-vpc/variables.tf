@@ -57,3 +57,13 @@ variable "az_subnet_privated" {
   description = "Availability Zone Subnet Private"
   default = "us-east-1a"
 }
+
+variable "security_group_public_ingress" {
+  type = list(number)
+  default = [80,443,22,3389]
+}
+
+variable "security_group_public_egress" {
+  type = list(number)
+  default = [80,443,22,3389]
+}

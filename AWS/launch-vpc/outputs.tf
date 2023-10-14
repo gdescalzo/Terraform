@@ -14,3 +14,11 @@ output "igw_id_output" {
 output "routing_table_public_output" {
     value = module.module_routing_table.routing_table_public_output
 }
+
+output "module_security_groups_name_output" {
+    value = module.module_security_groups.security_group_public_name_output 
+}
+
+output "module_security_groups_id_output" {
+    value = module.module_security_groups.security_group_public_name_output
+}
