@@ -14,7 +14,7 @@ provider "openstack" {
     password = "SomePassword"
     auth_url = "SomeURL"
     region = "RegionOne"
-    domain_name = "nty_testers"
+    domain_name = "SomeDomainName"
 }
 
 resource "openstack_compute_instance_v2" "basic" {
