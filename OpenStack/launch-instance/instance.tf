@@ -9,10 +9,10 @@ required_version = ">= 0.14.0"
 }
 
 provider "openstack" {
-    user_name = "gdescalzo"
-    tenant_name = "gdescalzo_project"
-    password = "qjTWvdqdRYwvnWgx36iFiVUZ9fl"
-    auth_url = "https://keystone.uy-south-1.public.ntycloud.net:5000/v3"
+    user_name = "SomUserName"
+    tenant_name = "SomeProjectName"
+    password = "SomePassword"
+    auth_url = "SomeURL"
     region = "RegionOne"
     domain_name = "nty_testers"
 }
