@@ -52,7 +52,7 @@ Below figured some authentication alternatives:
 
 > This action will give us the last information required
 
-[Azure-ClientSecret_app_registration.png](./img/Azure-ClientSecret_app_registration.png)
+![Azure-ClientSecret_app_registration.png](./img/Azure-ClientSecret_app_registration.png)
 
 </details>
 <details>
