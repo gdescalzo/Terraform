@@ -32,27 +32,27 @@ Below figured some authentication alternatives:
 
 | Step 1 | Step 2 |
 | :-: | :-: |
-| [Azure-Search_app_registrations](./img/Azure-Search_app_registrations.png) |  [Azure-Create_app_registrations](./img/Azure-Create_app_registrations.png) |
+| ![Azure-Search_app_registrations](./img/Azure-Search_app_registrations.png) |  ![Azure-Create_app_registrations](./img/Azure-Create_app_registrations.png) |
 
 > Then you will have to create an App Registration, click on Register an application and then follow the instructions
 
-[Azure-Register_app_registrations](./img/Azure-Register_app_registrations.png)
+![Azure-Register_app_registrations](./img/Azure-Register_app_registrations.png)
 
 > After that we will have created our application and that will provide part of the necessary information to authenticate against Azure:
 
 | Information Required | Capture |
 | - | :-: |
-| - subscription_id <br /> - client_id <br />- tenant_id | [Azure-Info_app_registrations](./img/Azure-Info_app_registrations.png) |
+| - subscription_id <br /> - client_id <br />- tenant_id | ![Azure-Info_app_registrations](./img/Azure-Info_app_registrations.png) |
 
 > It´s valid to clarify that for each App Registration made is required to create a **Client Credential** where figured "**Add a certificate or secret**" (_check the below screenshot_)
 
 | Step 1 | Step 2 |
 | :-: | :-: |
-| [Azure-ClientCredential_app_registrations](./img/Azure-ClientCredential_app_registrations.png) | [Azure-ClientCredential_app_registrations_1](./img/Azure-ClientCredential_app_registrations_1.png)
+| ![Azure-ClientCredential_app_registration](./img/Azure-ClientCredential_app_registration.png) | ![Azure-ClientCredential_app_registrations_1](./img/Azure-ClientCredential_app_registrations_1.png) |
 
 > This action will give us the last information required
 
-[Azure-ClientSecret_app_registrations](./img/Azure-ClientSecret_app_registrations.png)
+[Azure-ClientSecret_app_registration.png](./img/Azure-ClientSecret_app_registration.png)
 
 </details>
 <details>
@@ -71,12 +71,11 @@ Below figured some authentication alternatives:
 1. Create Service Principal execution the following command:
 
     ```
-
     az ad sp create-for-rbac --name "<service-principal-name>" --role="Contributor" --scopes="/subscriptions/<subscription-id>"
     ```
 
     > _This command will output the necessary information (appId, tenant, password)._
 
-    [az-cli_sp_creation](./img/az-cli_sp_creation.png)
+    ![az-cli_sp_creation](./img/az-cli_sp_creation.png)
 
 </details>
