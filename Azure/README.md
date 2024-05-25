@@ -54,7 +54,7 @@ Below figured some authentication alternatives:
 
 </details>
 <details>
-<summary><b>Service Principal</b> (<i>Click to expand</i>)</summary>
+<summary><b>Service Principal</b> (<i>click to expand</i>)</summary>
 
 **Create a Service Principal**
 
