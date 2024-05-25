@@ -7,7 +7,6 @@ First is require to have an Azure account, a [trial](https://azure.microsoft.com
 Then as second step is necessary to authenticate in some way with Azure, the Terraform code write. Please find bellow how can be authenticate against Azure.
 
 <hr />
-<br />
 
 ## Requirements
 
@@ -19,7 +18,6 @@ Please found below the requirements for authenticate Terraform against Azure
 - SUBSCRIPTION_ID="your-subscription-id"
 
 <hr />
-<br />
 
 ## Authentication Alternatives
 
