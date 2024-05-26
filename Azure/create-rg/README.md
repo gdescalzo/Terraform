@@ -103,3 +103,7 @@ After running `terraform apply`, the following outputs will be displayed:
 ### Resource Group in Azure Portal
 
 ![Resource Group](./img/resource-group.png)
+
+### Terraform Plan Output
+
+![Terraform Destroy Output](./img/terraform-destroy-output.png)
