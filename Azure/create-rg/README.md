@@ -4,6 +4,7 @@ This project demonstrates how to use Terraform to create an Azure Resource Group
 
 ## Project Structure
 
+```
 your-terraform-project/
 ├── create-rg/
 │ ├── main.tf
@@ -17,7 +18,8 @@ your-terraform-project/
 │ ├── dev.tfvars
 │ ├── prod.tfvars
 │ └── qa.tfvars
-└── ...
+└── 
+```
 
 ## Prerequisites
 
