@@ -4,7 +4,7 @@ This project demonstrates how to use Terraform to create an Azure Resource Group
 
 ## Project Structure
 
-
+```
 your-terraform-project/
 ├── create-vnet/
 │ ├── main.tf
@@ -17,6 +17,7 @@ your-terraform-project/
 │ │ ├── prod.tfvars
 │ │ └── qa.tfvars
 └── ...
+```
 
 ## Prerequisites
 
@@ -151,6 +152,6 @@ To clean up and remove all resources created by Terraform, run the following com
 terraform destroy -var-file="vars/credentials.tfvars" -var-file="vars/prod.tfvars"
 ```
 
-![Terraform Destroy Output](./img/terraform-plan-output_1.png)
+![Terraform Destroy Output](./img/terraform-destroy-output_1.png)
 
 
