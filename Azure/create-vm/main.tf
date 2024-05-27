@@ -37,7 +37,7 @@ resource "azurerm_virtual_machine" "vm" {
   location              = var.location
   resource_group_name   = var.resource_group_name
   network_interface_ids = [azurerm_network_interface.vm_nic[count.index].id]
-  vm_size               = "Standard_B1s"
+  vm_size               = var.vm_size
 
   storage_os_disk {
     name              = "osdisk-${count.index}"
